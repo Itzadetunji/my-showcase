@@ -8,7 +8,7 @@ function Sidebar() {
           <Image src="https://rb.gy/ogau5a" width={}/>
         </div>
     </div>
-  )
+  );
 }
 
 export default Sidebar;
