@@ -4,6 +4,12 @@
 
 @layer base {
   body {
-    background-color: #fff;
+    @apply bg-black;
+  }
+}
+
+@layer components {
+  .hoverAnimation{
+    @apply hover: 
   }
 }
