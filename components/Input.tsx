@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { XIcon } from "@heroicons/react/outline";  
+import { PhotographIcon, XIcon } from "@heroicons/react/outline";  
 
 function Input() {
   const [input, setInput] = useState("")
-  const [selectedFile, setSelectedFile] = useState("")
+  const [selectedFile, setSelectedFile] = useState(null)
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
       <img src="https://i.pcmag.com/imagery/reviews/03aizylUVApdyLAIku1AvRV-39.fit_scale.size_1028x578.v1605559903.png" alt="" className="h-11 w-11 rounded-full cursor-pointer"/>
@@ -16,14 +16,25 @@ function Input() {
           placeholder="What's Happening?"
           />
           {selectedFile && (
-            
-          )}
-          <div className="relative">
-            <div className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer">
+            <div className="relative">
+            <div className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer" onClick={() => setSelectedFile(null)}>
               <XIcon className="text-white h-5 "/>
             </div>
-            <img src={selectedFile} alt="" className="rounded-2xl max-h-80 object-contain"/>
+            <img 
+              src={selectedFile} 
+              alt="" 
+              className="rounded-2xl max-h-80 object-contain"
+              />
           </div>
+          )}
+        </div>
+        <div className="flex items-center justify-between pt-2.5">
+            <div className="flex items-center">
+              <div className="icon">
+                <PhotographIcon className="h-[22px] text-[#1d9bf0]"/>
+                <input type="text" />
+              </div>
+            </div>
         </div>
       </div>
     </div>
