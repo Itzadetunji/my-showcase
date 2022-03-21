@@ -4,9 +4,9 @@ import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon, XIcon } fro
 function Input() {
   const [input, setInput] = useState("")
   const [selectedFile, setSelectedFile] = useState(null)
+  const [showEmojis, setShowEmojis] = useState(false)
   const filePickerRef = useRef()
   const addImageToPost = () => {};
-  const [showEmojis, setShowEmojis] = useState(true)
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
       <img src="https://i.pcmag.com/imagery/reviews/03aizylUVApdyLAIku1AvRV-39.fit_scale.size_1028x578.v1605559903.png" alt="" className="h-11 w-11 rounded-full cursor-pointer"/>
@@ -42,7 +42,7 @@ function Input() {
                   ref={filePickerRef}
                 />
               </div>
-              <div className="icon">
+              <div className="icon rotate-90">
                 <ChartBarIcon className="h-[22px] text-[#1d9bf0]"/>
               </div>
               <div className="icon" onClick={() => setShowEmojis(!showEmojis)}>
