@@ -5,7 +5,7 @@ function Input() {
   const [input, setInput] = useState("")
   const [selectedFile, setSelectedFile] = useState(null)
   const [showEmojis, setShowEmojis] = useState(false)
-  const filePickerRef = useRef()
+  const filePickerRef = useRef(null)
   const addImageToPost = () => {};
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
