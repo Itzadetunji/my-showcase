@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon, XIcon } from "@heroicons/react/outline";  
+import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from 'emoji-mart';
 
 function Input() {
   const [input, setInput] = useState("")
@@ -51,6 +53,18 @@ function Input() {
               <div className="icon">
                 <CalendarIcon className="h-[22px] text-[#1d9bf0]"/>
               </div>
+              {showEmojis && (
+                <Picker
+                  // onSelect={addEmoji}
+                  style={{
+                    position: "absolute",
+                    marginTop: "465px",
+                    marginLeft: "-40",
+                    maxWidth: "320px",
+                    borderRadius: "20px"
+                  }}
+                />
+              )}
             </div>
         </div>
       </div>
