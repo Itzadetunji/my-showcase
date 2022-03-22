@@ -9,6 +9,15 @@ function Input() {
   const [showEmojis, setShowEmojis] = useState(false)
   const filePickerRef = useRef(null)
   const addImageToPost = () => {};
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x", el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setInput(input + emoji);
+  }
+
   const [addImageToPos, setAddImageToPos] = useState(null)
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
