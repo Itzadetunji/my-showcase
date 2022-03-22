@@ -13,7 +13,7 @@ function Input() {
   const addEmoji = (e) => {
     let sym = e.unified.split("-");
     let codesArray = [];
-    sym.forEach((el) => codesArray.push("0x", el));
+    sym.forEach((el) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
     setInput(input + emoji);
   }
@@ -23,7 +23,7 @@ function Input() {
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
       <img src="https://i.pcmag.com/imagery/reviews/03aizylUVApdyLAIku1AvRV-39.fit_scale.size_1028x578.v1605559903.png" alt="" className="h-11 w-11 rounded-full cursor-pointer"/>
       <div className="w-full divide-y divide-gray-700">
-        <div className={``}>
+        <div className={`${selectedFile && "pb-7"}` ${input && "space-y-2.5"}}>
           <textarea 
           value={input}
           onChange={(e) => setInput(e.target.value)} 
@@ -65,7 +65,7 @@ function Input() {
               </div>
               {showEmojis && (
                 <Picker
-                  // onSelect={addEmoji}
+                  onSelect={addEmoji}
                   style={{
                     position: "absolute",
                     marginTop: "465px",
@@ -77,6 +77,13 @@ function Input() {
                 />
               )}
             </div>
+            <button 
+              className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default" 
+              disabled={!input.trim() && !selectedFile}
+              // onClick={sendPost}
+            >
+              Tweet
+            </button>
         </div>
       </div>
     </div>
