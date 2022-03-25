@@ -48,9 +48,15 @@ function Input() {
     setInput("");
     setSelectedFile(null);
     setShowEmojis(false);
-  }
+  };
 
-  const addImageToPost = () => {};
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if(e.target.files[0]){
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload()
+  };
 
   const addEmoji = (e) => {
     let sym = e.unified.split("-");
