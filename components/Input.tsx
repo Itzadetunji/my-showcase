@@ -55,7 +55,9 @@ function Input() {
     if(e.target.files[0]){
       reader.readAsDataURL(e.target.files[0]);
     }
-    reader.onload()
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    };
   };
 
   const addEmoji = (e) => {
@@ -91,7 +93,8 @@ function Input() {
           </div>
           )}
         </div>
-        <div className="flex items-center justify-between pt-2.5">
+        {!loading && (
+            <div className="flex items-center justify-between pt-2.5">
             <div className="flex items-center">
               <div className="icon" onClick={() => filePickerRef.current.click()}>
                 <PhotographIcon className="h-[22px] text-[#1d9bf0]"/>
@@ -132,7 +135,8 @@ function Input() {
             >
               Tweet
             </button>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
