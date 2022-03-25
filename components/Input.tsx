@@ -70,7 +70,9 @@ function Input() {
 
   const [addImageToPos, setAddImageToPos] = useState(null)
   return (
-    <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll`}>
+    <div 
+      className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll ${loading && "opacity-60"}`}
+    >
       <img src="https://i.pcmag.com/imagery/reviews/03aizylUVApdyLAIku1AvRV-39.fit_scale.size_1028x578.v1605559903.png" alt="" className="h-11 w-11 rounded-full cursor-pointer"/>
       <div className="w-full divide-y divide-gray-700">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
@@ -131,7 +133,7 @@ function Input() {
             <button 
               className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default" 
               disabled={!input.trim() && !selectedFile}
-              // onClick={sendPost}
+              onClick={sendPost}
             >
               Tweet
             </button>
