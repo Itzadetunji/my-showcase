@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Feed from '../components/feed'
 import Sidebar from '../components/Sidebar'
+import { getProviders, getSession, useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
   return (
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
 
 export default Home
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
     (res) => res.json()
   );
