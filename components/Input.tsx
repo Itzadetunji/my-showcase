@@ -12,7 +12,9 @@ function Input() {
 
   const sendPost = () => {
     if(loading) return;
-    setLoading(true)
+    setLoading(true);
+
+    const docRef = 
   }
 
   const addImageToPost = () => {};
