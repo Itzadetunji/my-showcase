@@ -2,6 +2,15 @@ import React, { useRef, useState } from 'react';
 import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon, XIcon } from "@heroicons/react/outline";  
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
+import { db, storage} from "../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimeStamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage"
 
 function Input() {
   const [input, setInput] = useState("")
@@ -10,11 +19,11 @@ function Input() {
   const [loading, setLoading] = useState(false)
   const filePickerRef = useRef(null)
 
-  const sendPost = () => {
+  const sendPost = async () => {
     if(loading) return;
     setLoading(true);
 
-    const docRef = 
+    const docRef = await addDoc()
   }
 
   const addImageToPost = () => {};
