@@ -1,8 +1,8 @@
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import React from 'react'
 
-function login() {
+function Login({providers}) {
   return (
     <div className="text-white">
       <Image
@@ -11,8 +11,15 @@ function login() {
         height={150}
         objectFit="contain"
       />
+      <div>
+        {Object.values(providers).map(provider => (
+          <div key={provider.name}>
+            {/* https://devdojo.com/tailwindcss/buttons#_ */} 
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
 
-export default login
+export default Login
