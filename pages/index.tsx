@@ -5,7 +5,7 @@ import Feed from '../components/feed'
 import Sidebar from '../components/Sidebar'
 import { getProviders, getSession, useSession } from "next-auth/react";
 
-const Home: NextPage = () => {
+export default function Home({trendingResults, followResults, providers}) {
   return (
     <div className="">
       <Head>
@@ -22,8 +22,6 @@ const Home: NextPage = () => {
     </div>
   )
 }
-
-export default Home
 
 export async function getServerSideProps(context) {
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
