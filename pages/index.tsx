@@ -4,8 +4,13 @@ import Image from 'next/image'
 import Feed from '../components/feed'
 import Sidebar from '../components/Sidebar'
 import { getProviders, getSession, useSession } from "next-auth/react";
+import { LoginIcon } from '@heroicons/react/outline'
+import Login from '../components/login'
 
 export default function Home({trendingResults, followResults, providers}) {
+  const { data : session } = useSession();
+
+  if(!session) return <Login providers={providers}/>;
   return (
     <div className="">
       <Head>
@@ -31,14 +36,14 @@ export async function getServerSideProps(context) {
     (res) => res.json()
   );
   const providers = await getProviders();
-  const session = await getSession(context);
+  // const session = await getSession(context);
 
   return {
     props: {
       trendingResults,
       followResults,
       providers,
-      session,
+      // session,
     },
   };
 }
