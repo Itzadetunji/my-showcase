@@ -21,7 +21,6 @@ function Input() {
   const [loading, setLoading] = useState(false)
   const filePickerRef = useRef(null)
   const { data : session } = useSession();
-  const imgs = console.log(session.user.image)
 
   const sendPost = async () => {
     if(loading) return;
