@@ -10,7 +10,7 @@ import Login from '../components/login'
 export default function Home({trendingResults, followResults, providers}) {
   const { data : session } = useSession();
 
-  if(!session) return <Login providers={providers}/>;
+  if(!session) {return <Login providers={providers}/>};
   return (
     <div className="">
       <Head>

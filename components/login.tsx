@@ -1,8 +1,7 @@
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
-import React from 'react'
 
-function Login({providers}) {
+function Login({ providers }) {
   return (
     <div className="flex flex-col items-center space-y-20 pt-48">
       <Image
@@ -11,10 +10,11 @@ function Login({providers}) {
         height={150}
         objectFit="contain"
       />
+
       <div>
-        {Object.values(providers).map(provider => (
+        {Object.values(providers).map((provider) => (
           <div key={provider.name}>
-            {/* https://devdojo.com/tailwindcss/buttons#_  for custom css buttons*/} 
+            {/* https://devdojo.com/tailwindcss/buttons#_ */}
             <button
               className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
               onClick={() => signIn(provider.id, { callbackUrl: "/" })}
@@ -28,7 +28,7 @@ function Login({providers}) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
