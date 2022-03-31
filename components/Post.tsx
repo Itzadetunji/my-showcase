@@ -8,7 +8,9 @@ function Post({ id, post, postPage }) {
       )}
       <div className="flex flex-col space-y-2 w-full">
         <div className={`flex $(!postPage && "justify-between")`}>
-          
+          {postPage && (
+            <img src={post?.userImg} alt=""  className="h-11 w-11 rounded-full mr-4"/>
+          )}
         </div>
       </div>
     </div>
