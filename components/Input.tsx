@@ -3,6 +3,7 @@ import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon, XIcon } fro
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
 import { db, storage} from "../firebase";
+import { useSession } from 'next-auth/react';
 import {
   addDoc,
   collection,
@@ -19,6 +20,7 @@ function Input() {
   const [showEmojis, setShowEmojis] = useState(false)
   const [loading, setLoading] = useState(false)
   const filePickerRef = useRef(null)
+  const { data : session } = useSession();
 
   const sendPost = async () => {
     if(loading) return;
