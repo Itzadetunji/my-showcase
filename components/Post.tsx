@@ -31,7 +31,7 @@ function Post({ id, post, postPage }) {
              {" "}
             ·{" "}
             <span className="hover:underline text-sm sm:text-[15px]">
-              <Moment/>
+              {/* <Moment fromNow>{post?.timestamp?.toDate()}</Moment> */}
             </span>
           </div>
         </div>
