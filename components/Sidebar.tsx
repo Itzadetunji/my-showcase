@@ -22,7 +22,6 @@ function Sidebar() {
           <Image src={logo} width={30} height={30}/>
         </div>
         <div className="space-y-2.5 mb-2.5 xl:ml-24">
-          <SidebarLink text="Home" Icon={HomeIcon} active/>
           <SidebarLink text="Explore" Icon={HashtagIcon} active={false}/>
           <SidebarLink text="Notifications" Icon={BellIcon} active={false}/>
           <SidebarLink text="Messages" Icon={InboxIcon} active={false}/>
