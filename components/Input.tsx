@@ -21,16 +21,17 @@ function Input() {
   const [loading, setLoading] = useState(false)
   const filePickerRef = useRef(null)
   const { data : session } = useSession();
+  const imgs = console.log(session.user.image)
 
   const sendPost = async () => {
     if(loading) return;
     setLoading(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      // id: session.user.uid,
-      // username: session.user.name,
-      // userImg: session.user.image,
-      // tag: session.user.tag,
+      id: session.user.uid,
+      username: session.user.name,
+      userImg: session.user.image,
+      tag: session.user.tag,
       text: input,
       timestamp: serverTimestamp(),
     });
