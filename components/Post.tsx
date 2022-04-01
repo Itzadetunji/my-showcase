@@ -50,6 +50,9 @@ function Post({ id, post, postPage }) {
           alt={post?.image} 
           className="rounded-2xl max-h-[700px] object-contain mr-2"
         />
+        <div className={`text-[#6e767d] flex justify-between w-10/12 ${postPage && "mx-auto"}`}>
+
+        </div>
       </div>
     </div>
   )
