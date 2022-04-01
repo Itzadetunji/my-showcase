@@ -31,6 +31,7 @@ import { db } from "../firebase";
 function Post({ id, post, postPage }) {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState)
+  const [comments, setComments] = useState()
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
       {!postPage && (
@@ -78,7 +79,7 @@ function Post({ id, post, postPage }) {
           className="rounded-2xl max-h-[700px] object-contain mr-2"
         />
         <div className={`text-[#6e767d] flex justify-between w-10/12 ${postPage && "mx-auto"}`}>
-        {/* <div
+        <div
             className="flex items-center space-x-1 group"
             onClick={(e) => {
               e.stopPropagation();
@@ -94,7 +95,7 @@ function Post({ id, post, postPage }) {
                 {comments.length}
               </span>
             )}
-          </div> */}
+          </div>
 
           {session.user.uid === post?.id ? (
             <div
