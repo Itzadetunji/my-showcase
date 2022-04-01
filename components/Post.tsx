@@ -77,7 +77,7 @@ function Post({ id, post, postPage }) {
           className="rounded-2xl max-h-[700px] object-contain mr-2"
         />
         <div className={`text-[#6e767d] flex justify-between w-10/12 ${postPage && "mx-auto"}`}>
-        <div
+        {/* <div
             className="flex items-center space-x-1 group"
             onClick={(e) => {
               e.stopPropagation();
@@ -93,7 +93,7 @@ function Post({ id, post, postPage }) {
                 {comments.length}
               </span>
             )}
-          </div>
+          </div> */}
 
           {session.user.uid === post?.id ? (
             <div
@@ -116,7 +116,7 @@ function Post({ id, post, postPage }) {
             </div>
           )}
 
-          <div
+          {/* <div
             className="flex items-center space-x-1 group"
             onClick={(e) => {
               e.stopPropagation();
@@ -139,7 +139,7 @@ function Post({ id, post, postPage }) {
                 {likes.length}
               </span>
             )}
-          </div>
+          </div> */}
 
           <div className="icon group">
             <ShareIcon className="h-5 group-hover:text-[#1d9bf0]" />
