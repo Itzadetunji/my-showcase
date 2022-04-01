@@ -31,7 +31,7 @@ import { db } from "../firebase";
 function Post({ id, post, postPage }) {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState)
-  const [comments, setComments] = useState()
+  const [comments, setComments] = useState([])
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
       {!postPage && (
