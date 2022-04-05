@@ -36,7 +36,13 @@ function Post({ id, post, postPage }) {
   const [likes, setLikes] = useState([])
   const [liked, setLiked] = useState(false)
   const router = useRouter()
-  useEffect(() => setLiked(likes.findIndex(like.id) => like.id === session?.user?.uid))
+  useEffect(
+    () => 
+      setLiked(
+        likes.findIndex((like) => like.id === session?.user?.uid) !== -1
+      ),
+    [likes]
+  );
   const likePost = async () => {
     if(liked){
       await deleteDoc(doc(db, "post", id, "likes", session.user.uid))
