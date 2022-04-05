@@ -33,6 +33,9 @@ function Post({ id, post, postPage }) {
   const [isOpen, setIsOpen] = useRecoilState(modalState)
   const [postId, setPostId] = useRecoilState(postIdState)
   const [comments, setComments] = useState([])
+  const [likes, setLikes] = useState([])
+  const [liked, setLiked] = useState(false)
+  
   const router = useRouter()
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700" onClick={() => router.push(`/$id`)}>
