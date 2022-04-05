@@ -31,9 +31,11 @@ import { db } from "../firebase";
 function Post({ id, post, postPage }) {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState)
+  const [postId, setPostId] = useRecoilState(postIdState)
   const [comments, setComments] = useState([])
+  const router = useRouter()
   return (
-    <div className="p-3 flex cursor-pointer border-b border-gray-700">
+    <div className="p-3 flex cursor-pointer border-b border-gray-700" onClick={() => router.push(`/$id`)}>
       {!postPage && (
         <img 
           src={post?.userImg} 
