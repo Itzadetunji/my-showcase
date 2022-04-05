@@ -35,8 +35,17 @@ function Post({ id, post, postPage }) {
   const [comments, setComments] = useState([])
   const [likes, setLikes] = useState([])
   const [liked, setLiked] = useState(false)
-  
   const router = useRouter()
+  useEffect(() => setLiked(likes.findIndex(like.id) => like.id === session?.user?.uid))
+  const likePost = async () => {
+    if(liked){
+      await deleteDoc(doc(db, "post", id, "likes", session.user.uid))
+    } else{
+      await settDoc(doc(db, "posts", id, "likes", session.user.uid), {
+        username: session.user.name
+      })
+    }
+  }
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700" onClick={() => router.push(`/$id`)}>
       {!postPage && (
