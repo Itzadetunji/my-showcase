@@ -48,7 +48,7 @@ useEffect(
       setLiked(
         likes.findIndex((like) => like.id === session?.user?.uid) !== -1
       ),
-    [likes]
+    [likes] 
   );
 
   const likePost = async () => {
