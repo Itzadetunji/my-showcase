@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Feed from '../components/feed'
 import Sidebar from '../components/Sidebar'
+import Modal from '../components/Modal'
 import { getProviders, getSession, useSession } from "next-auth/react";
 import { LoginIcon } from '@heroicons/react/outline'
 import Login from '../components/login'
@@ -22,7 +23,7 @@ export default function Home({trendingResults, followResults, providers}) {
         <Feed/>
         {/* Widgets */}
 
-        {/* Modal */}
+        <Modal/>
       </main>
     </div>
   )
