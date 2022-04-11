@@ -80,7 +80,7 @@ useEffect(
           )}
           <div className="text-[#6e767d]">
             <div className="inline-block group">
-              <h4 className={`font-bold text-[15px] sm:text-baase text-[#d9d9d9] group-hover:underline ${!postPage && "inline-block"}`}>{post?.username}</h4>
+              <h4 className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ${!postPage && "inline-block"}`}>{post?.username}</h4>
               <span className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}>
                 @{post?.tag}
               </span>
