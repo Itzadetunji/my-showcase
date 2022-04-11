@@ -75,7 +75,8 @@ function Modal() {
                     <img src={post?.userImg} alt="" className="h-11 w-11 rounded-full"/>
                     <div>
                       <div className="inline-block group">
-                        <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline inline-block">{post?.username}</h4>
+                        <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] inline-block">{post?.username}</h4>
+                        <span className="ml-1.5 text-sm sm:text-[15px]">@{post?.tag}</span>
                       </div>
                     </div>
                   </div>
