@@ -7,9 +7,12 @@ import Modal from '../components/Modal'
 import { getProviders, getSession, useSession } from "next-auth/react";
 import { LoginIcon } from '@heroicons/react/outline'
 import Login from '../components/login'
+import { modalState } from '../atoms/modalAtom'
+import { useRecoilState } from 'recoil'
 
 export default function Home({trendingResults, followResults, providers}) {
   const { data : session } = useSession();
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
 
   if(!session) {return <Login providers={providers}/>};
   return (
@@ -23,7 +26,7 @@ export default function Home({trendingResults, followResults, providers}) {
         <Feed/>
         {/* Widgets */}
 
-        <Modal/>
+        { isOpen && <Modal/> }
       </main>
     </div>
   )
