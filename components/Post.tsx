@@ -40,12 +40,12 @@ function Post({ id, post, postPage }) {
   useEffect(
     () =>
       onSnapshot(
-        query(collection(db, "posts"), orderBy("timestamp", "desc")),
+        query(collection(db, "posts", id, "comments"), orderBy("timestamp", "desc")),
         (snapshot) => {
-          setPosts(snapshot.docs);
+          setComments(snapshot.docs);
         }
       ),
-    [db]
+    [db,id]
   );
 
   useEffect(
