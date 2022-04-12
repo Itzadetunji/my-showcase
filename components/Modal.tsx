@@ -77,7 +77,24 @@ function Modal() {
                       <div className="inline-block group">
                         <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] inline-block">{post?.username}</h4>
                         <span className="ml-1.5 text-sm sm:text-[15px]">@{post?.tag}</span>
-                      </div>
+                      </div>{" "}
+                      ·{" "}
+                      <span className="hover:underline text-sm sm:text-[15px]">
+                        <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
+                      </span>
+                      <p className="text-[#d9d9d9] text-[15px] sm:text-base">{post?.text}</p>
+                    </div>
+                  </div>
+                  <div className="mt-7 flex space-x-3 w-full">
+                    <img src={session.user.image} alt={session.user.image} className="h-11 w-11 rounded-full"/>
+                    <div className="flex-grow mt-2">
+                      <textarea
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                        placeholder="Tweet your reply"
+                        rows="2"
+                        className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
+                      />
                     </div>
                   </div>
                 </div>
