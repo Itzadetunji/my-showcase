@@ -24,7 +24,8 @@ function PostPage() {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const router = useRouter();
   const { id } = router. query; // or const id = router.query.id
-  if(!session){return false}
+  const [post, setPost] = useState(); 
+  // if(!session){return false}
   
   useEffect(
     () =>
@@ -36,7 +37,7 @@ function PostPage() {
   return (
     <div className="">
       <Head>
-        <title>Twitter</title>
+        <title>{post?.username} on Twitter: "{post?.text}"</title>
         <link rel="icon" href="/favicon.ico" />
       </Head> 
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
