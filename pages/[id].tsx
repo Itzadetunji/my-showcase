@@ -11,8 +11,7 @@ function PostPage() {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const router = useRouter();
-  // const { id } = router. query;
-  console.log(router)
+  const { id } = router. query; // or const id = router.query.id
   if(!session){return false}
   return (
     <div className="">
