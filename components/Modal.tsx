@@ -37,7 +37,7 @@ function Modal() {
     [db]
   );
 
-  const sendComment = async () => {
+  const sendComment = async (e) => {
     e.preventDefault(); // when you dont want the page to refresh
     await addDoc(collection(db, "posts", postId, "comments"), {
       comment: comment,
@@ -129,7 +129,7 @@ function Modal() {
                         <button
                           className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default"
                           type="submit"
-                          // onClick={sendComment}
+                          onClick={sendComment}
                           disabled={!comment.trim()}
                         >
                           Reply
