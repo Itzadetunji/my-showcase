@@ -37,6 +37,19 @@ function Modal() {
     [db]
   );
 
+  const sendComment = async () => {
+    e.preventDefault(); // when you dont want the page to refresh
+    await addDoc(collection(db, "posts", postId, "comments"), {
+      comment: comment,
+      username: session.user.name
+      tag: session.user.tag,
+      userImg: session.user.image,
+      timestamp: serverTimestamp()
+    })
+    setIsOpen(false)
+    setComment("")
+    router.push(``)
+  } 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog as="div" className="fixed z-50 inset-0 pt-8" onClose={setIsOpen}>
@@ -95,6 +108,33 @@ function Modal() {
                         rows="2"
                         className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
                       />
+                      <div className="flex items-center justify-between pt-2.5">
+                        <div className="flex items-center">
+                          <div className="icon">
+                            <PhotographIcon className="text-[#1d9bf0] h-[22px]" />
+                          </div>
+
+                          <div className="icon rotate-90">
+                            <ChartBarIcon className="text-[#1d9bf0] h-[22px]" />
+                          </div>
+
+                          <div className="icon">
+                            <EmojiHappyIcon className="text-[#1d9bf0] h-[22px]" />
+                          </div>
+
+                          <div className="icon">
+                            <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
+                          </div>
+                        </div>
+                        <button
+                          className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default"
+                          type="submit"
+                          // onClick={sendComment}
+                          disabled={!comment.trim()}
+                        >
+                          Reply
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
