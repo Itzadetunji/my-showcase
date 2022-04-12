@@ -41,14 +41,14 @@ function Modal() {
     e.preventDefault(); // when you dont want the page to refresh
     await addDoc(collection(db, "posts", postId, "comments"), {
       comment: comment,
-      username: session.user.name
+      username: session.user.name,
       tag: session.user.tag,
       userImg: session.user.image,
       timestamp: serverTimestamp()
     })
     setIsOpen(false)
     setComment("")
-    router.push(``)
+    router.push(`/${postId}`)
   } 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
