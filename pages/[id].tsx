@@ -18,6 +18,7 @@ import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Comment from "../components/Comment";
 import Head from "next/head";
+import Widgets from "../components/Widgets";
 function PostPage({trendingResults, followResults, providers}) {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -73,7 +74,7 @@ function PostPage({trendingResults, followResults, providers}) {
             </div>
           )}
         </div>
-
+        <Widgets/>
         { isOpen && <Modal/> }
       </main>
     </div>
