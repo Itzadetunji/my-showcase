@@ -1,3 +1,4 @@
+import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import Moment from 'moment'
 import React from 'react'
 
@@ -17,12 +18,15 @@ function Comment({id, comment}) {
                 </span>
             </div>{" "}
               ·{" "}
-              <span className="hover:underline text-sm sm:text-[15px]">
-                <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
+              <span className="hover:underline text-sm sm:text-[15px]"> 
+                Fix Date Here{/* <Moment fromNow>{comment?.timestamp?.toDate()}</Moment> */}
               </span>
               <p className="text-[#d9d9d9] mt-0.5 max-w-lg overflow-scroll text-[15px] sm:text-base">
                 {comment?.comment}
               </p>
+              <div className="icon group flex-shrink-0">
+                <DotsHorizontalIcon className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+              </div>
           </div>
         </div>
       </div>

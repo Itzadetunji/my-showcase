@@ -1,4 +1,3 @@
-
 import {
   collection,
   doc,
@@ -19,7 +18,6 @@ import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Comment from "../components/Comment";
 import Head from "next/head";
-import Login from "../components/login";
 function PostPage({trendingResults, followResults, providers}) {
   const { data : session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -36,7 +34,7 @@ function PostPage({trendingResults, followResults, providers}) {
       }),
     [db]
   );
-  
+
   useEffect(
     () =>
       onSnapshot(
