@@ -17,7 +17,7 @@ import Sidebar from "../components/Sidebar";
 import Post from "../components/Post";
 import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
-// import Comment from "../components/Comment";
+import Comment from "../components/Comment";
 import Head from "next/head";
 import Login from "../components/login";
 function PostPage({trendingResults, followResults, providers}) {
