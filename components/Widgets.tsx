@@ -20,6 +20,8 @@ function Widgets({trendingResults, followResults}) {
         {trendingResults.map((result,index) => {
           <Trending key={index} result={result}/>
         })}
+        <button className="hover:bg-opacity-[0.03] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between
+         w-full text-[#1d9bf0] font-light">Show More</button>
       </div>
     </div>
   )
